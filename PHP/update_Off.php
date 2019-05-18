@@ -1,4 +1,5 @@
 <?php
+// 主键不允许修改,根据主键来修改对应数据项
 include_once('./config.php')
 
 $OffNo=$_POST['OffNo'];
@@ -14,10 +15,10 @@ if (!$conn) {
     die("Connection failed");
 }
  
-$sql = 'INSERT INTO Off VALUES('.$OffNo.','.$EmployeeID.',"'.$OffReason.'","'.$OffTime.'",'.$OffDay.');';
+$sql = 'update Off set EmployeeID='.$EmployeeID.',OffReason="'.$OffReason.'",Offtime="'.$OffTime.'",OffDay='.$OffDay.' where OffNo='.$OffNo.';';
 
 if (mysqli_query($conn, $sql)) {
-    echo "新记录插入成功";
+    echo "更改成功";
 } else {
     echo $sql;
 }

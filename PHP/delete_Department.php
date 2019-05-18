@@ -1,23 +1,23 @@
 <?php
 include_once('./config.php')
-
+ 
 $DepartmentID=$_POST['DepartmentID'];
-$DepartmentName=$_POST['DepartmentName'];
 
 // 创建连接
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// 检测连接
+
+// Check connection
 if (!$conn) {
-    die("Connection failed");
+    die("连接失败!");
 }
  
-$sql = 'INSERT INTO Department (DepartmentID,DepartmentName) VALUES('.$DepartmentID.',"'.$DepartmentName.'";)';
- 
+$sql = "delete from Department where DepartmentID=".$DepartmentID.";";
+
 if (mysqli_query($conn, $sql)) {
-    echo "新记录插入成功";
+    echo "删除成功";
 } else {
     echo $sql;
 }
- 
+
 mysqli_close($conn);
 ?>

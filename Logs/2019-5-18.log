@@ -1,0 +1,1 @@
+# 需要增多点触发器.如果需要删除Department && Post 表中的数据的话.因为Employee拥有对Department表跟Post表的外键,所以可能要删除的时候把所有在Employee中对应DepartmentID跟PostID的数据全部删除,才能成功删除.

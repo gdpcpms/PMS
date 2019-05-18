@@ -1,4 +1,5 @@
 <?php
+// 主键不允许修改,根据主键来修改对应数据项
 include_once('./config.php')
 
 $DepartmentID=$_POST['DepartmentID'];
@@ -11,10 +12,10 @@ if (!$conn) {
     die("Connection failed");
 }
  
-$sql = 'INSERT INTO Department (DepartmentID,DepartmentName) VALUES('.$DepartmentID.',"'.$DepartmentName.'";)';
+$sql = 'update Department set DepartmentName="'.$DepartmentName.'" where DepartmentID='.$DepartmentID.';';
  
 if (mysqli_query($conn, $sql)) {
-    echo "新记录插入成功";
+    echo "更改成功";
 } else {
     echo $sql;
 }

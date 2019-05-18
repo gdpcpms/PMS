@@ -1,6 +1,8 @@
 <?php
+// 主键不允许修改,根据主键来修改对应数据项
 include_once('./config.php')
 
+$AttendanceNo=$_POST['AttendanceNo'];
 $EmployeeID=$_POST['EmployeeID'];
 $AttendanceDay=$_POST['AttendanceDay'];
 $Situation=$_POST['Situation'];
@@ -12,10 +14,10 @@ if (!$conn) {
     die("Connection failed");
 }
  
-$sql = 'INSERT INTO Attendance (EmployeeID,AttendanceDay,Situation) VALUES('.$EmployeeID.',"'.$AttendanceDay.'","'.$Situation.'";)';
+$sql = 'update Attendance set EmployeeID='.$EmployeeID.',AttendanceDay='.$AttendanceDay.',Situation="'.$Situation.'" where AttendanceNo='.$AttendanceNo.';';
  
 if (mysqli_query($conn, $sql)) {
-    echo "新记录插入成功";
+    echo "更改成功";
 } else {
     echo $sql;
 }

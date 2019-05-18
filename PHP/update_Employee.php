@@ -1,4 +1,5 @@
 <?php
+// 主键不允许修改,根据主键来修改对应数据项
 include_once('./config.php')
 
 $EmployeeID=$_POST['EmployeeID'];
@@ -21,10 +22,10 @@ if (!$conn) {
     die("Connection failed");
 }
  
-$sql = 'INSERT INTO Employee VALUES('.$EmployeeID.','.$DepartmentID.','.$PostID.',"'.$Name.'","'.$CardNumber.'","'.$Nation.'","'.$Sex.'","'.$Birthday.'",'.$Telephone.',"'.$Email.'","'.$SchoolRecord.'","'.$GradateSchool.'";)';
+$sql = 'update Employee set DepartmentID='.$DepartmentID.',PostID='.$PostID.',name="'.$Name.'",CardNumber="'.$CardNumber.'",Nation="'.$Nation.'",Sex="'.$Sex.'",Birthday="'.$Birthday.'",Telephone='.$Telephone.',Email="'.$Email.'",SchoolRecord="'.$SchoolRecord.'",GradateSchool="'.$GradateSchool.'" where EmployeeID='.$EmployeeID.';';
  
 if (mysqli_query($conn, $sql)) {
-    echo "新记录插入成功";
+    echo "更改成功";
 } else {
     echo $sql;
 }

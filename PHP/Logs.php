@@ -1,8 +1,5 @@
 <?php
-$servername = "192.168.102.155";
-$username = "root";
-$password = "root";
-$dbname = "Employee_system";
+include_once('./config.php')
 
 // 创建连接
 $conn = mysqli_connect($servername, $username, $password, $dbname);
