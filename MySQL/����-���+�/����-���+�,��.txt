@@ -1,0 +1,13 @@
+create database Employee_system;
+
+create table Department(DepartmentID smallint AUTO_INCREMENT,DepartmentName varchar(20) not null,primary key(DepartmentID,DepartmentName));
+
+create table Post(PostID smallint AUTO_INCREMENT,PostName varchar(20),BasicWage double not null, primary key(PostID,PostName));
+
+create table Employee(EmployeeID smallint primary key AUTO_INCREMENT,DepartmentID smallint,PostID smallint,Name varchar(20),CardNumber varchar(18) not null check(CHAR_LENGTH(CardNumber)=18),Nation varchar(10) not null,Sex varchar(2) not null check(Sex in ('男','女')),Birthday date not null,Telephone bigint not null,Email varchar(50) not null,SchoolRecord varchar(20) not null,GradateSchool varchar(50) not null,unique(CardNumber),unique(Telephone),unique(Email),foreign key(PostID) references Post(PostID),foreign key(DepartmentID) references Department(DepartmentID));
+
+create table Attendance(AttendanceNo smallint primary key AUTO_INCREMENT,EmployeeID smallint not null,AttendanceDay date not null,Situation varchar(100) not null,foreign key(EmployeeID) references Employee(EmployeeID));
+
+create table Off(OffNo smallint primary key AUTO_INCREMENT,EmployeeID smallint not null,OffReason varchar(100) not null,OffTime date not null,OffDay smallint not null,foreign key(EmployeeID) references Employee(EmployeeID));
+
+create table Logs(ID smallint AUTO_INCREMENT primary key,TableName varchar(20),TableID smallint,Action varchar(20),Record datetime);

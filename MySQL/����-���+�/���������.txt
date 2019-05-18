@@ -1,0 +1,29 @@
+delimiter $$
+
+create TRIGGER Logs_Employee_insert after insert on Employee for each row
+begin
+insert into Logs(TableName,TableID,Action,Record) values("Employee",NEW.EmployeeID,"insert",now());
+END$$
+
+create TRIGGER Logs_Employee_delete after delete on Employee for each row
+begin
+insert into Logs(TableName,TableID,Action,Record) values("Employee",OLD.EmployeeID,"delete",now());
+END$$
+
+create TRIGGER Logs_Employee_update after update on Employee for each row
+begin
+insert into Logs(TableName,TableID,Action,Record) values("Employee",NEW.EmployeeID,"update",now());
+END$$
+
+create TRIGGER Logs_Off_insert after insert on Off for each row
+begin
+insert into Logs(TableName,TableID,Action,Record) values("Off",NEW.OffNo,"insert",now());
+END$$
+
+create TRIGGER Logs_Off_delete after delete on Off for each row
+begin
+insert into Logs(TableName,TableID,Action,Record) values("Off",OLD.OffNo,"delete",now());
+END$$
+
+
+delimiter ;

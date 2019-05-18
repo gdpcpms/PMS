@@ -1,0 +1,19 @@
+delimiter $$
+
+create procedure delete_Off(in ID smallint)
+begin
+delete from Off where EmployeeID = ID;
+END$$
+
+create procedure delete_Attendance(in ID smallint)
+begin
+delete from Attendance where EmployeeID = ID;
+END$$
+
+create procedure delete_Employee(in EmployeeName varchar(20))
+begin
+delete from Employee where Name = EmployeeName;
+END$$
+
+
+delimiter ;

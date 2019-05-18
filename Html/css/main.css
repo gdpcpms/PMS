@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+.content{
+	height:500px;
+	margin-top:20px;
+}
+
+.items{
+	width:15%; 
+	height:500px; 
+	background-color:#EEE; 
+	border:2px groove #999; 
+	float:left;
+}
+
+.items button{
+	margin:0!important;
+	border:1px solid #FFF;
+	background-color:#CCC;
+}
+
+.items-content{
+	border:2px groove #999; 
+	height:500px;
+	width:84%;
+	float:right;
+}
+
+.content-table{
+	border-bottom:1px groove #999;
+	height:397px;
+	margin-bottom:5px;
+	overflow:scroll;	
+}
+
+
+th,td{
+	white-space:nowrap;
+	text-align:center;
+}
+
+
+.table_header{
+	position:absolute;
+	top:82px;
+}
+

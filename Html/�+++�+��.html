@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>人事管理系统</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.3.1 .js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/main.css" rel="stylesheet">
+    <script src="js/动态管理部门表格.js"></script>
+    
+  </head>
+  <body>
+    <div class="container">
+    	<!--头部logo-->
+    	<div style="background-color:#E7E9E9;">
+        	<img src="img/logo_school.png">
+            <span style="font-size:22px; font-weight:700; color:#06F; position:relative; top:10px; left:15px;">人事管理系统</span>
+        </div>
+        <!--内容-->
+        <div class="content">
+            <!--左边:选择列表-->
+            <div class="items">
+                <div class="btn-group">
+                        <button class="btn btn-block" onclick="window.location.href='人事管理系统.html'">员工信息</button>
+                        
+                        <button class="btn btn-block" onclick="window.location.href='部门信息.html'">部门信息</button>
+                        
+                        <button class="btn btn-block" onclick="window.location.href='岗位信息.html'">岗位信息</button>
+                        
+                        <button class="btn btn-block" onclick="window.location.href='考勤信息.html'">考勤信息</button>
+                        
+                        <button class="btn btn-block" onclick="window.location.href='休假信息.html'">休假信息</button>
+                </div>
+            </div>
+            <!--右边:列表对应的内容-->
+            <div class="items-content">
+            	<!--员工信息表-->
+                <div class="content-table department_table">
+                    <table class="table table-bordered table-striped">
+                    	<!--员工表头-->
+                    	<tbody>
+                        	<tr class="hide info table_header" id="department_table_header">
+                                <th>部门号</th><th>部门名称</th><th>部门主管</th>
+                            </tr>
+                            <tr class="info table_header_static">
+                                <th>部门号</th><th>部门名称</th><th>部门主管</th>
+                            </tr>
+                        </tbody>
+                        <!--员工表体-->
+                        <tbody id="department_table_content">
+                        </tbody>
+                        <!--输入行-->
+                        <tbody id="department_table_add">
+                        	<tr><td><input type="text" class="form-control" id="DepartmentID"></td><td><input type="text" class="form-control" id="DepartmentName"></td><td><input type="text" class="form-control" id="DepartmentBossName"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--增删查改-->
+                <div class="operate">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-2 col-xs-offset-5">
+                            <input type="text" class="form-control" placeholder="请输入部门号" id="department_text" autocomplete="off">
+                            </div>
+                            <label class="control-label hide" style="color:red;" id="alert">找不到该对象！</label>
+                        </div>                        
+                    </form> 
+                    <button type="button" class="btn btn-info" onClick="add()" style="margin-left:38%;">新增</button>
+                    <button type="button" class="btn btn-success" id="lookup" onClick="lookup()">查找</button>
+                    <button type="button" class="btn btn-primary" id="renew" onClick="renew()">修改</button>
+                    <button type="button" class="btn btn-danger" id="delect" onClick="delect()">删除</button>
+                </div>
+            </div>
+		</div>
+
+
+
+
+    </div>
+  </body>
+</html>
